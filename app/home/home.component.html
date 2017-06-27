@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 class="page-header">Haber Ara</h2><hr>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="query" name="query" class="form-control" placeholder="Haber Ara..."><br/>
+    <input type="button" (click)="searchNews()" class="btn btn-success" value="Getir">
+  </div>
+  <hr>
+  <div *ngIf="isLoading" class="loader">
+  </div>
+  <div class="panel panel-default" *ngIf="news.length > 0">
+
+    <div class="panel-heading">Sonuçlar</div>
+    <div class="panel-body">
+
+        <div class="col" *ngFor="let haber of news">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="{{haber.img}}" width="333px" height="187px" style="max-height: 190px">
+              <div class="caption">
+                <h3>{{haber.title}}</h3>
+                <p>{{haber.description}}</p>
+                <p><a href="{{haber.url}}" class="btn btn-primary" role="button">Habere Git</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+
+</div>

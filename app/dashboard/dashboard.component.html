@@ -1,0 +1,42 @@
+<script src="../../../../../contactlist/client/src/app/contacts/contacts.component.ts"></script>
+<div class="container">
+  <h2 class="page-header">Add News</h2>
+  <form (submit)="addNews()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="title" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="description" name="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Url</label>
+      <input type="text" [(ngModel)]="url" name="url" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input type="text" [(ngModel)]="img" name="img" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="button" (click)="updateNews()" class="btn btn-success" value="Update">
+  </form>
+</div>
+<hr/>
+<div class="container">
+  <div *ngFor="let gNews of news">
+    <div class="col-md-3">
+      {{gNews.title}}
+    </div>
+    <div class="col-md-3">
+      {{gNews.description.substr(0,70)}}...
+    </div>
+    <div class="col-md-3">
+      {{gNews.url}}
+    </div>
+    <input type="button" (click)="deleteNews(gNews._id)" value="Delete" class="btn btn-danger">
+    <input type="button" (click)="fillInputs(gNews._id)" value="Fill" class="btn btn-warning">
+    <br><br><hr/>
+  </div>
+</div>
+
